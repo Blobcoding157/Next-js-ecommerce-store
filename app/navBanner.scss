@@ -1,0 +1,70 @@
+.banner {
+  display: flex;
+  font-weight: 600;
+  flex-direction: row;
+  align-items: center;
+  border: 10px;
+  border-bottom: 5px;
+  border-color: black;
+  position: static;
+  box-shadow: 100px;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+.headerLogo {
+  box-sizing: border-box;
+  display: inline-block;
+  overflow: hidden;
+  width: initial;
+  height: initial;
+  background: none;
+  opacity: 1;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 75px;
+  max-height: 75px;
+}
+.searchLogo {
+  max-width: 35px;
+  max-height: 35px;
+}
+.cartLogo {
+  max-width: 35px;
+  max-height: 35px;
+}
+
+.bannerNavigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+}
+.navigationItem {
+  display: flex;
+  flex-direction: row;
+  color: var(--main-text-color);
+  align-items: center;
+  position: static;
+  padding: 5px;
+}
+.navImages {
+  max-width: 40px;
+  max-height: 40px;
+}
+.bannerUtilities {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+}
+.utilitiesItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: static;
+  padding: 7px;
+}

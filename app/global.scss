@@ -1,0 +1,20 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Crete Round', serif;
+  font-size: 14px;
+  background-color: #fcdec4;
+  color: #2f292b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+header {
+  background-color: rgb(255, 255, 255);
+}

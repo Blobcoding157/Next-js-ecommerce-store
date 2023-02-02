@@ -1,0 +1,14 @@
+.mainPicture {
+  z-index: -1;
+  overflow: 'hidden';
+}
+
+.mainLogo {
+  max-width: 100%;
+  z-index: 1;
+  object-fit: 'cover';
+}
+
+.background {
+  background-color: blanchedalmond;
+}
