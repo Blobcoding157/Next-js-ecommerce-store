@@ -1,3 +1,25 @@
+import './page.scss';
+import Image from 'next/image';
+import GenerateItem from '../generateItem';
+
 export default function WandsAndStaffsPage() {
-  return <div>here are some wands and staffs for you</div>;
+  return (
+    <>
+      <div className="wandHeader">
+        <Image
+          className="wandHeaderImage"
+          alt="wand header"
+          src="/wands/wand_header.jpg"
+          width={2560}
+          height={1707}
+        />
+        <div className="wandHeaderText">
+          THIS IS A CERTIFIED WIZARDRY CLASSIC
+        </div>
+      </div>
+      <div className="items">
+        <GenerateItem />
+      </div>
+    </>
+  );
 }

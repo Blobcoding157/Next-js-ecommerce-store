@@ -3,6 +3,7 @@ export default function BroomsHead() {
     <>
       <title>Magical Brooms</title>
       <meta content="Get your Brooms" name="description" />
+      <link rel="icon" href="/favicon.png" />
     </>
   );
 }

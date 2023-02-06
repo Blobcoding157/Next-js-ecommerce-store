@@ -3,6 +3,7 @@ export default function WandsAndStaffsHead() {
     <>
       <title>Magical wands/staffs</title>
       <meta content="Get your wands and staffs " name="description" />
+      <link rel="icon" href="/favicon.png" />
     </>
   );
 }

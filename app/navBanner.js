@@ -5,12 +5,15 @@ import Link from 'next/link';
 export default function NavBanner() {
   return (
     <div className="banner">
-      <img className="headerLogo" alt="Wizard-Logo" src="/wizard-logo-t.png" />
+      <Link href="/">
+        <img
+          className="headerLogo"
+          alt="Wizard-Logo"
+          src="/wizard-logo-t.png"
+        />
+      </Link>
+
       <nav className="bannerNavigation">
-        <Link className="navigationItem" href="/">
-          HOME
-        </Link>
-        /
         <Link className="navigationItem" href="/wands&staffs">
           <img className="navImages" alt="wands" src="/wand_logo.png" />
           WANDS&STAFFS
@@ -34,11 +37,13 @@ export default function NavBanner() {
 
       <nav className="bannerUtilities">
         <div className="utilitiesItem">
-          <img className="searchLogo" alt="search" src="/search.png" />
+          <img className="utilsLogo" alt="search" src="/search.png" />
         </div>
-        <div className="utilitiesItem">SIGN IN</div>
         <div className="utilitiesItem">
-          <img className="cartLogo" alt="cart" src="/cart.png" />
+          <img className="utilsLogo" alt="Login" src="/user_logo.png" />
+        </div>
+        <div className="utilitiesItem">
+          <img className="utilsLogo" alt="cart" src="/cart.png" />
         </div>
       </nav>
     </div>

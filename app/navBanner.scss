@@ -1,12 +1,13 @@
 .banner {
   display: flex;
+  position: sticky;
+  top: 0px;
   font-weight: 600;
   flex-direction: row;
   align-items: center;
   border: 10px;
   border-bottom: 5px;
-  border-color: black;
-  position: static;
+  border-color: white;
   box-shadow: 100px;
   justify-content: space-between;
   padding: 0 1.5rem;
@@ -28,11 +29,7 @@
   max-width: 75px;
   max-height: 75px;
 }
-.searchLogo {
-  max-width: 35px;
-  max-height: 35px;
-}
-.cartLogo {
+.utilsLogo {
   max-width: 35px;
   max-height: 35px;
 }
@@ -46,10 +43,32 @@
 .navigationItem {
   display: flex;
   flex-direction: row;
-  color: var(--main-text-color);
   align-items: center;
-  position: static;
   padding: 5px;
+  color: #2f292b;
+  text-decoration: none;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #2f292b;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  @media (max-width: 768px) {
+    font-size: 0px;
+  }
 }
 .navImages {
   max-width: 40px;
@@ -67,4 +86,8 @@
   align-items: center;
   position: static;
   padding: 7px;
+
+  @media (max-width: 768px) {
+    font-size: 0px;
+  }
 }

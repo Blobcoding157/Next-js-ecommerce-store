@@ -3,6 +3,7 @@ export default function RobesHead() {
     <>
       <title>Magical Robes</title>
       <meta content="Get your Robes" name="description" />
+      <link rel="icon" href="/favicon.png" />
     </>
   );
 }
