@@ -1,21 +1,12 @@
+.wandsAndStaffs {
+  background-color: darkorchid;
+}
+
 .wandHeader {
   align-items: center;
   position: relative;
   text-align: center;
   color: white;
-}
-
-.wandHeaderText {
-  position: absolute;
-  font-weight: 700;
-  text-shadow: 1px 1px 30px rgba(3, 1, 1, 0.8);
-  font-size: 4.25rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  @media (max-width: 768px) {
-    font-size: 2.15rem;
-  }
 }
 
 .wandHeaderImage {

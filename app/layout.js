@@ -1,3 +1,4 @@
+import CookieBanner from './CookieBanner';
 import NavBanner from './navBanner';
 
 export default function RootLayout({ children }) {
@@ -8,9 +9,10 @@ export default function RootLayout({ children }) {
         <header className="header">
           <NavBanner />
         </header>
+        <CookieBanner />
         {children}
       </body>
-      <div>this is the Bottom info Area</div>
+      <div className="footer">this is the Bottom info Area</div>
     </html>
   );
 }

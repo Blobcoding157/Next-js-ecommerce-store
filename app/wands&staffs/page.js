@@ -1,6 +1,6 @@
 import './page.scss';
 import Image from 'next/image';
-import GenerateItem from '../generateItem';
+import GenerateItem from './generateItem';
 
 export default function WandsAndStaffsPage() {
   return (
@@ -13,9 +13,6 @@ export default function WandsAndStaffsPage() {
           width={2560}
           height={1707}
         />
-        <div className="wandHeaderText">
-          THIS IS A CERTIFIED WIZARDRY CLASSIC
-        </div>
       </div>
       <div className="items">
         <GenerateItem />
