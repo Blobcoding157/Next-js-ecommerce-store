@@ -1,14 +1,33 @@
 import '../global.scss';
 import './generateItem.scss';
+import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
 import { items } from '../database/items';
 
 export default function GenerateItem() {
+  // To-Do: find a way to initialize individual Wand&Staffs Cookies
+
+  // const wandsAndStaffCookies = cookies().get(
+  //   `${props.data.id}${props.data.title}`,
+  // );
+  const wandsAndStaffCookies = cookies().get(`1Wand`);
+
+  let wandsAndStaffCookiesParsed = [];
+
+  wandsAndStaffCookiesParsed = JSON.parse(wandsAndStaffCookies.value);
+
+  console.log(wandsAndStaffCookiesParsed);
+
+  const wandAndStaffWithAmount = items.map((item) => {
+    const itemWithAmount = { ...item, amount: 0 };
+    return itemWithAmount;
+  });
+
   return (
     <>
-      {items.map((item) => {
+      {wandAndStaffWithAmount.map((item) => {
         return (
           <Fragment key={item.id}>
             <Link

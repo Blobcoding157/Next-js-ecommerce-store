@@ -30,7 +30,7 @@ export const items = [
     title: 'Slightly Magical Staff',
     type: 'Staff',
     description:
-      'A Staff that changes the taste of Berries to nuts, with a 20% success chance',
+      'A staff that changes the taste of berries to nuts, with a 20% success chance',
     imageLink: '/wand_logo.png',
     price: '20g',
   },
