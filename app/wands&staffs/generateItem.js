@@ -9,25 +9,22 @@ import { items } from '../database/items';
 export default function GenerateItem() {
   // To-Do: find a way to initialize individual Wand&Staffs Cookies
 
-  // const wandsAndStaffCookies = cookies().get(
-  //   `${props.data.id}${props.data.title}`,
-  // );
-  const wandsAndStaffCookies = cookies().get(`1Wand`);
+  const wandsAndStaffCookies = cookies().get(`cart`);
 
   let wandsAndStaffCookiesParsed = [];
 
   wandsAndStaffCookiesParsed = JSON.parse(wandsAndStaffCookies.value);
-
-  console.log(wandsAndStaffCookiesParsed);
 
   const wandAndStaffWithAmount = items.map((item) => {
     const itemWithAmount = { ...item, amount: 0 };
     return itemWithAmount;
   });
 
+  const ItemsToMap = wandAndStaffWithAmount ? wandAndStaffWithAmount : items;
+
   return (
     <>
-      {wandAndStaffWithAmount.map((item) => {
+      {ItemsToMap.map((item) => {
         return (
           <Fragment key={item.id}>
             <Link

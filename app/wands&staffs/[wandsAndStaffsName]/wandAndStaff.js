@@ -2,8 +2,10 @@
 import '../../global.scss';
 import './wandAndStaff.scss';
 import Image from 'next/image';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
+
+export let totalAmount = 0;
 
 export default function WandAndStaff(props) {
   const [count, setCount] = useState(1);
@@ -46,17 +48,16 @@ export default function WandAndStaff(props) {
         <button
           onClick={() => {
             // get the cookie
-            const wandsAndStaffCookies = getParsedCookie(
-              `${props.data.id}${props.data.title}`,
-            );
+            const wandsAndStaffCookies = getParsedCookie(`cart`);
             // if there is no cookie we add an initial one with 1
             if (!wandsAndStaffCookies) {
-              setStringifiedCookie(`${props.data.id}${props.data.title}`, [
+              setStringifiedCookie(`cart`, [
                 {
                   id: props.data.id,
                   amount: 1,
                 },
               ]);
+
               // stop when there is no cookie
               return;
             }
@@ -68,6 +69,7 @@ export default function WandAndStaff(props) {
             if (foundCookie) {
               // my cookie is set
               foundCookie.amount += count;
+              totalAmount += count;
             } else {
               // my cookie is not set
               wandsAndStaffCookies.push({
@@ -76,10 +78,7 @@ export default function WandAndStaff(props) {
               });
             }
             // update the cookie
-            setStringifiedCookie(
-              `${props.data.id}${props.data.title}`,
-              wandsAndStaffCookies,
-            );
+            setStringifiedCookie(`cart`, wandsAndStaffCookies);
             setCount(1);
           }}
         >
