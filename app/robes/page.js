@@ -1,3 +1,3 @@
 export default function RobesPage() {
-  return <div>here are some Robes for you</div>;
+  return <h1>try wands instead</h1>;
 }

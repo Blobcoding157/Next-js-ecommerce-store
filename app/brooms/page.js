@@ -1,3 +1,3 @@
 export default function BroomsPage() {
-  return <div>here are some brooms for you</div>;
+  return <h1>No Brooms Here</h1>;
 }

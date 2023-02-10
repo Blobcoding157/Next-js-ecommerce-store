@@ -1,0 +1,79 @@
+.container {
+  background-color: white;
+  padding: 30px;
+  max-width: 80vw;
+  margin: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 10px;
+  border-bottom: 5px;
+  border-color: wheat;
+  box-sizing: none;
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.buttonContainer {
+  color: #5e412f;
+}
+
+.title {
+  font-weight: 700;
+  min-width: 200px;
+  text-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  padding: 30px;
+}
+
+.type {
+  color: black;
+}
+
+.price {
+  color: black;
+}
+
+.input {
+  min-width: 35px;
+  align-items: center;
+  border-radius: 5px;
+  border: solid;
+  border-color: #5e412f;
+
+  &:hover {
+    border-color: blanchedalmond;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+}
+
+.button {
+  min-width: 58px;
+  align-items: center;
+  border-radius: 5px;
+  border: solid;
+  border-color: #5e412f;
+
+  &:hover {
+    border-color: blanchedalmond;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+}
+
+.addToBag {
+  border-radius: 5px;
+  align-items: center;
+  border: solid;
+  border-color: #5e412f;
+
+  &:hover {
+    background-color: blanchedalmond;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+}

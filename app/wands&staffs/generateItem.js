@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { items } from '../database/items';
+import { items } from '../database/items.mjs';
 
 export default function GenerateItem() {
   // To-Do: find a way to initialize individual Wand&Staffs Cookies
@@ -29,7 +29,7 @@ export default function GenerateItem() {
           <Fragment key={item.id}>
             <Link
               className="itemLinkbegone"
-              href={`/wands&staffs/${item.title.toLowerCase()}`}
+              href={`/wands&staffs/${item.title.toLocaleLowerCase()}`}
             >
               <div className="itemContainer">
                 <Image
@@ -41,7 +41,6 @@ export default function GenerateItem() {
                 <h1 className="itemTitle">{item.title.toUpperCase()}</h1>
                 <div className="itemType">{item.type}</div>
 
-                <p className="itemDescription">{item.description}</p>
                 <div className="itemPrice">{item.price}</div>
               </div>
             </Link>

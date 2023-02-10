@@ -1,7 +1,7 @@
 import '../../global.scss';
 import '../generateItem.scss';
 import { notFound } from 'next/navigation';
-import { items } from '../../database/items';
+import { items } from '../../database/items.mjs';
 import WandAndStaff from './wandAndStaff';
 
 export default function WandAndStaffPage({ params }) {

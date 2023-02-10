@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
         <CookieBanner />
         {children}
       </body>
-      <div className="footer">this is the Bottom info Area</div>
+      {/* <div className="footer"> this is the Bottom info Area</div> */}
     </html>
   );
 }

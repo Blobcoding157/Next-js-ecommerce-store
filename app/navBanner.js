@@ -12,7 +12,6 @@ export default function NavBanner() {
           src="/wizard-logo-t.png"
         />
       </Link>
-
       <nav className="bannerNavigation">
         <Link className="navigationItem" href="/wands&staffs">
           <img className="navImages" alt="wands" src="/wand_logo.png" />
@@ -42,9 +41,9 @@ export default function NavBanner() {
         <div className="utilitiesItem">
           <img className="utilsLogo" alt="Login" src="/user_logo.png" />
         </div>
-        <div className="utilitiesItem">
+        <Link className="navigationItem" href="/cart">
           <img className="utilsLogo" alt="cart" src="/cart.png" />
-        </div>
+        </Link>
       </nav>
     </div>
   );
