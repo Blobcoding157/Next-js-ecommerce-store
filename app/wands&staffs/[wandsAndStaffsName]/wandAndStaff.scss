@@ -54,26 +54,43 @@
 }
 
 .button {
-  min-width: 58px;
-  align-items: center;
-  border-radius: 5px;
-  border: solid;
-  border-color: #5e412f;
+  font-family: inherit;
+  padding: 0.3em 1em;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid #5e412f;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
 
   &:hover {
-    border-color: blanchedalmond;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+    background-color: blanchedalmond;
+  }
+
+  &:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
   }
 }
 
 .addToBag {
-  border-radius: 5px;
-  align-items: center;
-  border: solid;
-  border-color: #5e412f;
+  font-family: inherit;
+  padding: 0.3em 1em;
+  font-weight: 700;
+  font-size: 18px;
+  border: 2px solid #5e412f;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
 
   &:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
     background-color: blanchedalmond;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+
+  &:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
   }
 }

@@ -4,8 +4,8 @@ export async function up(sql) {
   id integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   title varchar(30) NOT NULL,
   type varchar(10) NOT NULL,
-  description varchar(200),
-  imageLink varchar(50),
+  description varchar(500),
+  image_link varchar(50),
   price integer NOT NULL
   );
 
