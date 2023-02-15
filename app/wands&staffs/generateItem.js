@@ -4,10 +4,10 @@ import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { items } from '../database/items.mjs';
+import { getAllItems } from '../database/items';
 
-export default function GenerateItem() {
-  // To-Do: find a way to initialize individual Wand&Staffs Cookies
+export default async function GenerateItem() {
+  const items = await getAllItems();
 
   const wandsAndStaffCookies = cookies().get(`cart`);
 
@@ -15,20 +15,22 @@ export default function GenerateItem() {
 
   wandsAndStaffCookiesParsed = JSON.parse(wandsAndStaffCookies.value);
 
+  console.log(wandsAndStaffCookiesParsed);
+
   const wandAndStaffWithAmount = items.map((item) => {
     const itemWithAmount = { ...item, amount: 0 };
     return itemWithAmount;
   });
 
-  const ItemsToMap = wandAndStaffWithAmount ? wandAndStaffWithAmount : items;
+  const itemsToMap = wandAndStaffWithAmount ? wandAndStaffWithAmount : items;
 
   return (
     <>
-      {ItemsToMap.map((item) => {
+      {itemsToMap.map((item) => {
         return (
           <Fragment key={item.id}>
             <Link
-              className="itemLinkbegone"
+              className="itemLinkBegone"
               href={`/wands&staffs/${item.title.toLocaleLowerCase()}`}
             >
               <div className="itemContainer">

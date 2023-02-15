@@ -1,10 +1,12 @@
 import '../../global.scss';
 import '../generateItem.scss';
 import { notFound } from 'next/navigation';
-import { items } from '../../database/items.mjs';
+import { getAllItems } from '../../database/items';
 import WandAndStaff from './wandAndStaff';
 
-export default function WandAndStaffPage({ params }) {
+export default async function WandAndStaffPage({ params }) {
+  const items = await getAllItems();
+
   const wandAndStaff = items.find((data) => {
     return data.title.toLowerCase() === params.wandsAndStaffsName;
   });
