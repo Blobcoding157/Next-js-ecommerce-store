@@ -1,6 +1,5 @@
 import '../global.scss';
 import './generateItem.scss';
-import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
@@ -8,14 +7,6 @@ import { getAllItems } from '../database/items';
 
 export default async function GenerateItem() {
   const items = await getAllItems();
-
-  const wandsAndStaffCookies = cookies().get(`cart`);
-
-  let wandsAndStaffCookiesParsed = [];
-
-  wandsAndStaffCookiesParsed = JSON.parse(wandsAndStaffCookies.value);
-
-  console.log(wandsAndStaffCookiesParsed);
 
   const wandAndStaffWithAmount = items.map((item) => {
     const itemWithAmount = { ...item, amount: 0 };

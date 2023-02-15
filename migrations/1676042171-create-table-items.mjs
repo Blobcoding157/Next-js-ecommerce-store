@@ -7,6 +7,7 @@ export async function up(sql) {
   description varchar(500),
   image_link varchar(50),
   price integer NOT NULL
+
   );
 
  `;

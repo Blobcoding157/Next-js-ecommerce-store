@@ -2,7 +2,7 @@
 import '../../global.scss';
 import './wandAndStaff.scss';
 import Image from 'next/image';
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 
 export default function WandAndStaff(props) {
