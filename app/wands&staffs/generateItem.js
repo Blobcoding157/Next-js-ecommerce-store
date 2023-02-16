@@ -8,12 +8,18 @@ import { getAllItems } from '../database/items';
 export default async function GenerateItem() {
   const items = await getAllItems();
 
-  const wandAndStaffWithAmount = items.map((item) => {
+  const wandAndStaffs = items.filter(
+    (ws) => ws.type === 'Wand' || ws.type === 'Staff',
+  );
+
+  const wandAndStaffWithAmount = wandAndStaffs.map((item) => {
     const itemWithAmount = { ...item, amount: 0 };
     return itemWithAmount;
   });
 
-  const itemsToMap = wandAndStaffWithAmount ? wandAndStaffWithAmount : items;
+  const itemsToMap = wandAndStaffWithAmount
+    ? wandAndStaffWithAmount
+    : wandAndStaffs;
 
   return (
     <>
