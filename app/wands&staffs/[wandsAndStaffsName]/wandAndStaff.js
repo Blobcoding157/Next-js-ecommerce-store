@@ -2,11 +2,13 @@
 import '../../global.scss';
 import './wandAndStaff.scss';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { Fragment, useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 
 export default function WandAndStaff(props) {
   const [count, setCount] = useState(1);
+  const router = useRouter();
 
   return (
     <Fragment key={props.data.id}>
@@ -22,7 +24,7 @@ export default function WandAndStaff(props) {
             <h1 className="title">{props.data.title.toLocaleUpperCase()}</h1>
             <div className="type">{props.data.type}</div>
           </div>
-          <div className="price">{props.data.price}</div>
+          <div className="price">{props.data.price} G</div>
 
           <div className="buttonContainer">
             <input
@@ -31,6 +33,29 @@ export default function WandAndStaff(props) {
               placeholder={count}
               value={count}
             />
+            <button
+              className="button"
+              onClick={() => {
+                if (count > 1) {
+                  setCount(count - 1);
+                }
+              }}
+            >
+              -
+            </button>
+
+            <button
+              className="button"
+              onClick={() => {
+                if (count >= 1) {
+                  setCount(count + 1);
+                } else {
+                  setCount(1);
+                }
+              }}
+            >
+              +
+            </button>
             <button
               className="addToBag"
               onClick={() => {
@@ -64,34 +89,12 @@ export default function WandAndStaff(props) {
                 // update the cookie
                 setStringifiedCookie(`cart`, wandsAndStaffCookies);
                 setCount(1);
+                router.refresh();
               }}
             >
               Add to Bag
             </button>
           </div>
-          <button
-            className="button"
-            onClick={() => {
-              if (count > 1) {
-                setCount(count - 1);
-              }
-            }}
-          >
-            -
-          </button>
-
-          <button
-            className="button"
-            onClick={() => {
-              if (count >= 1) {
-                setCount(count + 1);
-              } else {
-                setCount(1);
-              }
-            }}
-          >
-            +
-          </button>
         </div>
         <div className="description">{props.data.description}</div>
       </div>

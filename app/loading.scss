@@ -28,12 +28,16 @@ $bg-color: #2b2b2b;
     top: 2px;
   }
 }
+
+.entire-potion {
+  min-width: 100%;
+  min-height: 100%;
+}
 body {
   // background-color: $bg-color;
   .container {
     width: 250px;
     height: 250px;
-    margin: auto;
     position: relative;
     display: flex;
     justify-content: center;

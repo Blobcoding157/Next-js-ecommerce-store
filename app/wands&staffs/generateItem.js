@@ -29,12 +29,12 @@ export default async function GenerateItem() {
                   alt={item.title}
                   src={item.imageLink}
                   width="200"
-                  height="200"
+                  height="250"
                 />
                 <h1 className="itemTitle">{item.title.toUpperCase()}</h1>
                 <div className="itemType">{item.type}</div>
 
-                <div className="itemPrice">{item.price}</div>
+                <div className="itemPrice">{item.price} G</div>
               </div>
             </Link>
           </Fragment>

@@ -1,3 +1,4 @@
+import './global.scss';
 import CookieBanner from './CookieBanner';
 import NavBanner from './navBanner';
 
@@ -10,7 +11,7 @@ export default function RootLayout({ children }) {
           <NavBanner />
         </header>
         <CookieBanner />
-        {children}
+        <div className="entirePageContainer">{children}</div>
       </body>
       {/* <div className="footer"> this is the Bottom info Area</div> */}
     </html>

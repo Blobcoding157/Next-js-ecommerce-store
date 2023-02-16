@@ -1,4 +1,5 @@
 'use client';
+import './global.scss';
 import { useEffect, useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../utils/cookies';
 

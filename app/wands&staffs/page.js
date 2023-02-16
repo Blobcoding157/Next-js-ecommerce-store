@@ -1,5 +1,5 @@
 import './page.scss';
-import { cookies } from 'next/headers';
+import '../global.scss';
 import Image from 'next/image';
 import GenerateItem from './generateItem';
 

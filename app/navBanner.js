@@ -1,8 +1,32 @@
 import './global.scss';
 import './navBanner.scss';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { getAllItems } from './database/items';
 
-export default function NavBanner() {
+export default async function NavBanner() {
+  const cartItemCookies = cookies().get(`cart`);
+  let cartItemCookiesParsed = [];
+  cartItemCookiesParsed = JSON.parse(cartItemCookies.value);
+
+  const allItems = await getAllItems();
+
+  const cartItems = cartItemCookiesParsed.map((cookie) => {
+    const itemsInCart = allItems.find((item) => item.id === cookie.id);
+    return {
+      id: itemsInCart.id,
+      title: itemsInCart.title,
+      imageLink: itemsInCart.imageLink,
+      price: itemsInCart.price,
+      amount: cookie.amount,
+    };
+  });
+
+  const totalAmount = cartItems.reduce(
+    (acc, current) => acc + current.amount,
+    0,
+  );
+
   return (
     <div className="banner">
       <Link href="/">
@@ -43,6 +67,7 @@ export default function NavBanner() {
         </div>
         <Link className="navigationItem" href="/cart">
           <img className="utilsLogo" alt="cart" src="/cart.png" />
+          <div className="total-amount">{totalAmount}</div>
         </Link>
       </nav>
     </div>

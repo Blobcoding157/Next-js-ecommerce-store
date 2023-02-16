@@ -2,7 +2,7 @@
   display: flex;
   position: sticky;
   width: 100vw;
-  top: 0px;
+  top: 0;
   font-weight: 600;
   flex-direction: row;
   align-items: center;
@@ -15,7 +15,10 @@
   padding: 0 1.5rem;
   z-index: 1;
 }
-
+.total-amount {
+  background-color: blanchedalmond;
+  border-radius: 50%;
+}
 .headerLogo {
   box-sizing: border-box;
   display: inline-block;

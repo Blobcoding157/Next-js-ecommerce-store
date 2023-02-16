@@ -2,6 +2,8 @@
   background-color: white;
   padding: 30px;
   max-width: 80vw;
+  min-width: 80%;
+  min-height: 80%;
   margin: 30px;
   border-radius: 10px;
   display: flex;
@@ -30,6 +32,7 @@
   align-items: center;
   margin: 30px;
   padding: 30px;
+  font-size: large;
 }
 
 .type {
@@ -37,25 +40,25 @@
 }
 
 .price {
-  color: black;
+  color: goldenrod;
+  font-size: x-large;
+  font-weight: 700;
 }
 
 .input {
-  min-width: 35px;
   align-items: center;
-  border-radius: 5px;
-  border: solid;
-  border-color: #5e412f;
-
-  &:hover {
-    border-color: blanchedalmond;
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  }
+  max-width: 55px;
+  font-size: 18px;
+  padding: 0.3em 1em;
+  border-radius: 0.4em;
+  font-weight: 700;
+  border: 2px solid #5e412f;
+  box-shadow: 0.1em 0.1em;
 }
 
 .button {
-  font-family: inherit;
   padding: 0.3em 1em;
+  max-width: 55px;
   font-weight: 700;
   font-size: 18px;
   border: 2px solid #5e412f;
@@ -76,6 +79,7 @@
 
 .addToBag {
   font-family: inherit;
+  min-width: 150px;
   padding: 0.3em 1em;
   font-weight: 700;
   font-size: 18px;
