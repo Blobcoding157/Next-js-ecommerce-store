@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Crete Round', serif;
   font-size: 14px;
+  scroll-behavior: smooth;
   min-height: 100vh;
   color: #2f292b;
   background-color: #fcebb6;
@@ -19,6 +20,42 @@ body {
 .entirePageContainer {
   padding-top: 81px;
   min-height: 90%;
+}
+
+.cookieBannerContainer {
+  justify-content: space-between;
+
+  width: 100vw;
+  font-weight: 700;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 12;
+  background-color: #5e412f;
+}
+
+.cookieBannerButton {
+  font-family: inherit;
+  padding: 0.2em 0.1em;
+  font-weight: 400;
+  margin: 2px;
+  font-size: 18px;
+  border: 2px solid #5e412f;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em;
+
+  &:hover {
+    transform: translate(-0.05em, -0.05em);
+    box-shadow: 0.15em 0.15em;
+    background-color: blanchedalmond;
+  }
+
+  &:active {
+    transform: translate(0.05em, 0.05em);
+    box-shadow: 0.05em 0.05em;
+  }
 }
 
 header {

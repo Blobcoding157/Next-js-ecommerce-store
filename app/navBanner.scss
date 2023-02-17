@@ -18,6 +18,11 @@
 .total-amount {
   background-color: blanchedalmond;
   border-radius: 50%;
+  min-width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
 }
 .headerLogo {
   box-sizing: border-box;

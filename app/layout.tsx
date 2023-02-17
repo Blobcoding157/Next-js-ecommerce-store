@@ -2,7 +2,10 @@ import './global.scss';
 import CookieBanner from './CookieBanner';
 import NavBanner from './navBanner';
 
-export default function RootLayout({ children }) {
+type Props = {
+  children: React.ReactNode;
+};
+export default function RootLayout(props: Props) {
   return (
     <html lang="en">
       <head />
@@ -11,7 +14,7 @@ export default function RootLayout({ children }) {
           <NavBanner />
         </header>
         <CookieBanner />
-        <div className="entirePageContainer">{children}</div>
+        <div className="entirePageContainer">{props.children}</div>
       </body>
       {/* <div className="footer"> this is the Bottom info Area</div> */}
     </html>

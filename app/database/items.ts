@@ -6,7 +6,7 @@ type Item = {
   title: string;
   type: string;
   description: string | undefined;
-  image_link: string | undefined;
+  imageLink: string;
   price: number;
 };
 

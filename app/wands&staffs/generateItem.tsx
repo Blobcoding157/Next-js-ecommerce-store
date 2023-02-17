@@ -17,13 +17,9 @@ export default async function GenerateItem() {
     return itemWithAmount;
   });
 
-  const itemsToMap = wandAndStaffWithAmount
-    ? wandAndStaffWithAmount
-    : wandAndStaffs;
-
   return (
     <>
-      {itemsToMap.map((item) => {
+      {wandAndStaffWithAmount.map((item) => {
         return (
           <Fragment key={item.id}>
             <Link

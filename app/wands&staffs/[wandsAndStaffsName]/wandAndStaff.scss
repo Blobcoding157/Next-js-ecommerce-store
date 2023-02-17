@@ -1,9 +1,9 @@
 .container {
   background-color: white;
   padding: 30px;
-  max-width: 80vw;
-  min-width: 80%;
-  min-height: 80%;
+  // max-width: 80vw;
+  min-width: 80vw;
+  min-height: 80vh;
   margin: 30px;
   border-radius: 10px;
   display: flex;
@@ -16,23 +16,37 @@
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
+.image-button-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-image {
+  margin: 15px;
+}
 .buttonContainer {
   color: #5e412f;
 }
 
+.title-description {
+  display: flex;
+
+  flex-direction: column;
+}
 .title {
   font-weight: 700;
-  min-width: 200px;
+  font-size: 50px;
+  margin: 0;
+
   text-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .description {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 30px;
-  padding: 30px;
-  font-size: large;
+  margin-top: 15px;
+
+  font-size: x-large;
 }
 
 .type {
@@ -43,6 +57,7 @@
   color: goldenrod;
   font-size: x-large;
   font-weight: 700;
+  padding: 10px;
 }
 
 .input {

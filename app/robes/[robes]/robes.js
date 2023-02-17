@@ -13,19 +13,14 @@ export default function Robes(props) {
   return (
     <Fragment key={props.data.id}>
       <div className="container">
-        <Image
-          alt={props.data.title}
-          src={props.data.imageLink}
-          width="300"
-          height="300"
-        />
-        <div>
-          <div>
-            <h1 className="title">{props.data.title.toLocaleUpperCase()}</h1>
-            <div className="type">{props.data.type}</div>
-          </div>
-          <div className="price">{props.data.price} G</div>
-
+        <div className="image-button-container">
+          <Image
+            className="item-image"
+            alt={props.data.title}
+            src={props.data.imageLink}
+            width="400"
+            height="500"
+          />
           <div className="buttonContainer">
             <input
               type="submit"
@@ -83,7 +78,7 @@ export default function Robes(props) {
                   // my cookie is not set
                   wandsAndStaffCookies.push({
                     id: props.data.id,
-                    amount: 1,
+                    amount: count,
                   });
                 }
                 // update the cookie
@@ -94,9 +89,14 @@ export default function Robes(props) {
             >
               Add to Bag
             </button>
+            <div className="price">{props.data.price * count} G</div>
           </div>
         </div>
-        <div className="description">{props.data.description}</div>
+        <div className="title-description">
+          <h1 className="title">{props.data.title.toLocaleUpperCase()}</h1>
+
+          <div className="description">{props.data.description}</div>
+        </div>
       </div>
     </Fragment>
   );

@@ -9,10 +9,10 @@ export default function BroomsPage() {
       <div className="wandHeader">
         <Image
           className="wandHeaderImage"
-          alt="wand header"
-          src="/wands/wand_header.jpg"
-          width={2560}
-          height={1707}
+          alt="broom header"
+          src="/brooms/broom-header.jpg"
+          width={1370}
+          height={594}
         />
       </div>
       <div className="items">

@@ -6,26 +6,31 @@ import { getAllItems } from './database/items';
 
 export default async function NavBanner() {
   const cartItemCookies = cookies().get(`cart`);
-  let cartItemCookiesParsed = [];
-  cartItemCookiesParsed = JSON.parse(cartItemCookies.value);
 
+  let totalAmount = 0;
   const allItems = await getAllItems();
+  let cartItemCookiesParsed: { id: number; amount: number }[] = [];
 
-  const cartItems = cartItemCookiesParsed.map((cookie) => {
-    const itemsInCart = allItems.find((item) => item.id === cookie.id);
-    return {
-      id: itemsInCart.id,
-      title: itemsInCart.title,
-      imageLink: itemsInCart.imageLink,
-      price: itemsInCart.price,
-      amount: cookie.amount,
-    };
-  });
+  if (cartItemCookies) {
+    cartItemCookiesParsed = JSON.parse(cartItemCookies.value);
 
-  const totalAmount = cartItems.reduce(
-    (acc, current) => acc + current.amount,
-    0,
-  );
+    const cartItems = cartItemCookiesParsed.map((cookie) => {
+      const itemsInCart: any = allItems.find((item) => item.id === cookie.id);
+      return {
+        id: itemsInCart.id,
+        title: itemsInCart.title,
+        imageLink: itemsInCart.imageLink,
+        price: itemsInCart.price,
+        amount: cookie.amount,
+      };
+    });
+
+    totalAmount = cartItems.reduce(
+      (acc: number, current: { id: number; amount: number }) =>
+        acc + current.amount,
+      0,
+    );
+  }
 
   return (
     <div className="banner">

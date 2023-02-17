@@ -10,9 +10,9 @@ export default function RobesPage() {
         <Image
           className="wandHeaderImage"
           alt="wand header"
-          src="/wands/wand_header.jpg"
-          width={2560}
-          height={1707}
+          src="/robes/robes-header.jpg"
+          width={1370}
+          height={594}
         />
       </div>
       <div className="items">
