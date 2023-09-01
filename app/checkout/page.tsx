@@ -1,5 +1,5 @@
 import '../global.scss';
-import './checkoutPage.scss';
+import '../styles/checkoutPage.scss';
 import Link from 'next/link';
 
 export default function CheckoutPage() {

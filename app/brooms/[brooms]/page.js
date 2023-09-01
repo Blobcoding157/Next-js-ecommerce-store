@@ -1,5 +1,5 @@
 import '../../global.scss';
-import '../../wands&staffs/generateItem.scss';
+import '../../styles/generateItem.scss';
 import { notFound } from 'next/navigation';
 import { getAllItems } from '../../database/items';
 import WandAndStaff from './brooms';

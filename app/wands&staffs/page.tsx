@@ -1,4 +1,4 @@
-import './page.scss';
+import '../styles/wands-and-staffs-page.scss';
 import '../global.scss';
 import Image from 'next/image';
 import GenerateItem from './generateItem';

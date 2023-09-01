@@ -1,5 +1,5 @@
 import '../global.scss';
-import './thankYouPage.scss';
+import '../styles/thankYouPage.scss';
 import Image from 'next/image';
 
 export default function ThankYouPage() {

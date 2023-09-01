@@ -1,6 +1,6 @@
 import './global.scss';
-import CookieBanner from './CookieBanner';
-import NavBanner from './navBanner';
+import CookieBanner from './components/CookieBanner';
+import NavBanner from './components/navBanner';
 
 type Props = {
   children: React.ReactNode;

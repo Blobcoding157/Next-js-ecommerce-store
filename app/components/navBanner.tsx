@@ -1,8 +1,8 @@
-import './global.scss';
-import './navBanner.scss';
+import '../global.scss';
+import '../styles/navBanner.scss';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { getAllItems } from './database/items';
+import { getAllItems } from '../database/items';
 
 export default async function NavBanner() {
   const cartItemCookies = cookies().get(`cart`);

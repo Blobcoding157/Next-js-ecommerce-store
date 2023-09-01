@@ -1,6 +1,6 @@
 'use client';
 import '../../global.scss';
-import './wandAndStaff.scss';
+import '../../styles/wandAndStaff.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { Fragment, useState } from 'react';

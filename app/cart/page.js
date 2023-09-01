@@ -1,5 +1,5 @@
 import '../global.scss';
-import './cartPage.scss';
+import '../styles/cartPage.scss';
 import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';

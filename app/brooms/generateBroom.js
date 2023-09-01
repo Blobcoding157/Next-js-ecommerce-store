@@ -1,5 +1,5 @@
 import '../global.scss';
-import '../wands&staffs/generateItem.scss';
+import '../styles/generateItem.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';

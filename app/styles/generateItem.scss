@@ -1,0 +1,85 @@
+.itemTitle {
+  font-size: larger;
+  text-align: center;
+  font-weight: 700;
+}
+.itemType {
+  font-size: medium;
+  color: #473e41;
+}
+.itemDescription {
+  font-size: small;
+  text-align: left;
+}
+.itemLinkBegone {
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+}
+
+.itemPrice {
+  font-weight: 700;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 300px;
+  min-height: 400px;
+  align-items: center;
+  background-color: white;
+  max-width: 300px;
+  color: #2f292b;
+  text-decoration: none;
+  border: solid;
+  border-color: white;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: #2f292b;
+
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  &:hover {
+    transition: all 0.3s linear;
+    position: relative;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.01);
+
+    &::after {
+      position: absolute;
+      content: '';
+      top: 15px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      transform: scale(0.9) translateZ(0);
+      filter: blur(15px);
+      background: linear-gradient(
+        to left,
+        #ff5770,
+        #e4428d,
+        #c42da8,
+        #9e16c3,
+        #6501de,
+        #9e16c3,
+        #c42da8,
+        #e4428d,
+        #ff5770
+      );
+      background-size: 200% 200%;
+      animation: animateGlow 1.25s linear infinite;
+    }
+  }
+
+  @keyframes animateGlow {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+}
