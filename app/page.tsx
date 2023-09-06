@@ -1,6 +1,6 @@
 import './styles/hero-page.scss';
 import './global.scss';
-import FeaturedBanner from './components/featuredBanner';
+import FeaturedCarousel from './components/featuredCarousel';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         alt="Welcome to WizardShack"
         src="/wizard-mp-t.png"
       />
-      <FeaturedBanner />
+      <FeaturedCarousel />
     </div>
   );
 }

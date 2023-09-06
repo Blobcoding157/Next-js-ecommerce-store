@@ -1,20 +1,46 @@
-import '../styles/featuredHero.scss';
+import '../styles/featuredCarousel.scss';
 import '../global.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { getAllItems } from '../database/items';
 
-export default async function FeaturedBanner() {
+export default async function FeaturedCarousel() {
   const allItems = await getAllItems();
 
+  const useInterval = (callback, delay) => {
+    const savedCallback = useRef();
+
+    useEffect(() => {
+      savedCallback.current = callback;
+    });
+
+    useEffect(() => {
+      function tick() {
+        savedCallback.current();
+      }
+      if (delay !== null) {
+        let id = setInterval(tick, delay);
+        return () => clearInterval(id);
+      }
+    }, [delay]);
+  };
+  const Carousel = (props) => {
+    const len = allItems.length;
+    const [activeIndex, setActive] = useState(0);
+
+    //Autoplay
+    useInterval(() => {
+      setActive((activeIndex + 1) % len);
+    }, 3000);
+  };
+  // Link: https://codepen.io/lisianthus-a/pen/pobxrNq
   return (
     <section className="featured-section">
       <h1 className="featured-header">Featured Items</h1>
       <button className="previous-button">
         <img className="arrow" src="/arrow1.png" alt="previous product" />
       </button>
-
       <button className="next-button">
         <img className="arrow" src="/arrow1.png" alt="next product" />
       </button>
@@ -34,6 +60,8 @@ export default async function FeaturedBanner() {
             case 'Broom':
               linkFix = 'brooms';
               break;
+            default:
+              linkFix = 'Error';
           }
           return (
             <Fragment key={item.id}>

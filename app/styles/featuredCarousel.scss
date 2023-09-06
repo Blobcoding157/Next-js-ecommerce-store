@@ -52,9 +52,9 @@
   overflow-x: auto;
   scroll-behavior: smooth;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 }
 
 .item-card {
