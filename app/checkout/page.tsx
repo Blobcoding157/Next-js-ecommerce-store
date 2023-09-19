@@ -79,7 +79,7 @@ export default function CheckoutPage() {
         <div className="checkout-button-container">
           <Link href="./thankYou">
             <button
-              className="checkout-button"
+              className="confirm-button"
               data-test-id="checkout-confirm-order"
             >
               Conform Order
