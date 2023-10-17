@@ -1,34 +1,25 @@
+'use client';
+
 import '../global.scss';
 import '../styles/cartPage.scss';
-import { cookies } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAllItems } from '../database/items';
 
-export default async function Cart() {
-  const cartItemCookies = cookies().get(`cart`);
+interface Props {
+  cartItems: any;
+}
 
-  let cartItemCookiesParsed = [];
+interface CartItem {
+  id: number;
+  title: string;
+  imageLink: string;
+  price: number;
+  amount: number;
+}
 
-  if (cartItemCookies) {
-    cartItemCookiesParsed = JSON.parse(cartItemCookies.value);
-  }
-  const allItems = await getAllItems();
-
-  const cartItems = cartItemCookiesParsed.map((cookie) => {
-    const itemsInCart = allItems.find((item) => item.id === cookie.id);
-    return {
-      id: itemsInCart.id,
-      title: itemsInCart.title,
-      imageLink: itemsInCart.imageLink,
-      price: itemsInCart.price,
-      amount: cookie.amount,
-    };
-  });
-
-
-  const cost = cartItems.reduce(
-    (acc, current) => acc + current.price * current.amount,
+export default async function CartPage(props: Props) {
+  const cost = props.cartItems.reduce(
+    (acc: number, current: CartItem) => acc + current.price * current.amount,
     0,
   );
 
@@ -49,10 +40,10 @@ export default async function Cart() {
       <h1 className="cart-page-title">Your Magical Bag</h1>
       <div className="cart-checkout-container">
         <main className="cart-item-container">
-          {!cartItemCookies ? (
+          {!props.cartItems ? (
             <div />
           ) : (
-            cartItems.map((item) => {
+            props.cartItems.map((item) => {
               return (
                 <div className="cart-item" key={item.id}>
                   <Image
@@ -69,26 +60,13 @@ export default async function Cart() {
                         {item.price * item.amount} G
                       </div>
                       <div className="cart-item-quantity-container">
-                        <button
-                          onClick={decreaseItem(item.id)}
-                          className="cart-item-button"
-                        >
-                          -
-                        </button>
+                        <button className="cart-item-button">-</button>
                         {' ' + item.amount + ' '}
-                        <button
-                          onClick={increaseItem(item.id)}
-                          className="cart-item-button"
-                        >
-                          +
-                        </button>
+                        <button className="cart-item-button">+</button>
                       </div>
                       <button
                         aria-label="remove"
                         className="cart-item-remove-button"
-                        onClick={() => {
-                          removeItem(item.id);
-                        }}
                       >
                         <Image
                           src="/remove.png"
