@@ -1,9 +1,11 @@
 import '../styles/wands-and-staffs-page.scss';
 import '../global.scss';
 import Image from 'next/image';
+import { getAllItems } from '../database/items';
 import GenerateBroom from './generateBroom';
 
-export default function BroomsPage() {
+export default async function BroomsPage() {
+  const items = await getAllItems();
   return (
     <>
       <div className="wandHeader">
@@ -16,7 +18,7 @@ export default function BroomsPage() {
         />
       </div>
       <div className="items">
-        <GenerateBroom />
+        <GenerateBroom items={items} />
       </div>
     </>
   );

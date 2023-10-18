@@ -5,6 +5,8 @@ import NavBanner from './components/navBanner';
 type Props = {
   children: React.ReactNode;
 };
+export const dynamic = 'force-dynamic';
+
 export default function RootLayout(props: Props) {
   return (
     <html lang="en">

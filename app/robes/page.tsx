@@ -1,9 +1,11 @@
 import '../styles/wands-and-staffs-page.scss';
 import '../global.scss';
 import Image from 'next/image';
+import { getAllItems } from '../database/items';
 import GenerateRobe from './generateRobe';
 
-export default function RobesPage() {
+export default async function RobesPage() {
+  const items = await getAllItems();
   return (
     <>
       <div className="wandHeader">
@@ -16,7 +18,7 @@ export default function RobesPage() {
         />
       </div>
       <div className="items">
-        <GenerateRobe />
+        <GenerateRobe items={items} />
       </div>
     </>
   );

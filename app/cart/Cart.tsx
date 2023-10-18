@@ -2,26 +2,74 @@
 
 import '../global.scss';
 import '../styles/cartPage.scss';
+import Cookie from 'js-cookie';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-interface Props {
-  cartItems: any;
-}
-
-interface CartItem {
+type CartItem = {
   id: number;
   title: string;
   imageLink: string;
   price: number;
   amount: number;
-}
+};
+type Props = {
+  cartItems: CartItem[];
+};
 
-export default async function CartPage(props: Props) {
-  const cost = props.cartItems.reduce(
-    (acc: number, current: CartItem) => acc + current.price * current.amount,
-    0,
-  );
+export default function Cart(props: Props) {
+  const [cartItems, setCartItems] = useState<CartItem[]>(props.cartItems || []);
+  const router = useRouter();
+
+  // When props.cartItems changes, update the local state
+  useEffect(() => {
+    setCartItems(props.cartItems || []);
+    router.refresh();
+  }, [props.cartItems]);
+
+  // Function to update the cart cookie
+  const updateCartCookie = (cartItems: CartItem[]) => {
+    Cookie.set('cart', JSON.stringify(cartItems));
+    router.refresh();
+  };
+
+  const handleIncrease = (itemId: number) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === itemId ? { ...item, amount: item.amount + 1 } : item,
+    );
+    setCartItems(updatedItems);
+    updateCartCookie(updatedItems);
+    router.refresh();
+  };
+
+  const handleDecrease = (itemId: number) => {
+    const updatedItems = cartItems.map((item) =>
+      item.id === itemId && item.amount > 1
+        ? { ...item, amount: item.amount - 1 }
+        : item,
+    );
+    setCartItems(updatedItems);
+    updateCartCookie(updatedItems);
+    router.refresh();
+  };
+
+  const handleRemove = (itemId: number) => {
+    const updatedItems = cartItems.filter((item) => item.id !== itemId);
+    setCartItems(updatedItems);
+    updateCartCookie(updatedItems);
+    router.refresh();
+  };
+
+  const cost =
+    cartItems && Array.isArray(cartItems)
+      ? cartItems.reduce(
+          (acc: number, current: CartItem) =>
+            acc + current.price * current.amount,
+          0,
+        )
+      : 0;
 
   const tax = Math.floor(cost * 0.1);
 
@@ -35,15 +83,17 @@ export default async function CartPage(props: Props) {
     endTotal = tax + cost + Math.floor(cost * 0.05);
   }
 
+  console.log('Cart Page Items:', cartItems);
+
   return (
     <div className="cart-page">
       <h1 className="cart-page-title">Your Magical Bag</h1>
       <div className="cart-checkout-container">
         <main className="cart-item-container">
-          {!props.cartItems ? (
-            <div />
+          {!cartItems || cartItems.length === 0 ? (
+            <div>No items in the cart</div>
           ) : (
-            props.cartItems.map((item) => {
+            cartItems.map((item: CartItem) => {
               return (
                 <div className="cart-item" key={item.id}>
                   <Image
@@ -60,11 +110,22 @@ export default async function CartPage(props: Props) {
                         {item.price * item.amount} G
                       </div>
                       <div className="cart-item-quantity-container">
-                        <button className="cart-item-button">-</button>
+                        <button
+                          onClick={() => handleDecrease(item.id)}
+                          className="cart-item-button"
+                        >
+                          -
+                        </button>
                         {' ' + item.amount + ' '}
-                        <button className="cart-item-button">+</button>
+                        <button
+                          onClick={() => handleIncrease(item.id)}
+                          className="cart-item-button"
+                        >
+                          +
+                        </button>
                       </div>
                       <button
+                        onClick={() => handleRemove(item.id)}
                         aria-label="remove"
                         className="cart-item-remove-button"
                       >

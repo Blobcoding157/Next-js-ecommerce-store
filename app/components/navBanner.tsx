@@ -2,30 +2,17 @@ import '../global.scss';
 import '../styles/navBanner.scss';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { getAllItems } from '../database/items';
 
-export default async function NavBanner() {
+export default function NavBanner() {
   const cartItemCookies = cookies().get(`cart`);
 
   let totalAmount = 0;
-  const allItems = await getAllItems();
   let cartItemCookiesParsed: { id: number; amount: number }[] = [];
 
   if (cartItemCookies) {
     cartItemCookiesParsed = JSON.parse(cartItemCookies.value);
 
-    const cartItems = cartItemCookiesParsed.map((cookie) => {
-      const itemsInCart: any = allItems.find((item) => item.id === cookie.id);
-      return {
-        id: itemsInCart.id,
-        title: itemsInCart.title,
-        imageLink: itemsInCart.imageLink,
-        price: itemsInCart.price,
-        amount: cookie.amount,
-      };
-    });
-
-    totalAmount = cartItems.reduce(
+    totalAmount = cartItemCookiesParsed.reduce(
       (acc: number, current: { id: number; amount: number }) =>
         acc + current.amount,
       0,

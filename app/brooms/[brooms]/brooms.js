@@ -3,12 +3,16 @@ import '../../global.scss';
 import '../../styles/wandAndStaff.scss';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { getParsedCookie, setStringifiedCookie } from '../../../utils/cookies';
 
 export default function BroomsPage(props) {
   const [count, setCount] = useState(1);
   const router = useRouter();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [router.asPath]);
 
   return (
     <Fragment key={props.data.id}>

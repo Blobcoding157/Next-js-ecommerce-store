@@ -1,12 +1,25 @@
+'use client';
 import '../global.scss';
 import '../styles/generateItem.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fragment } from 'react';
-import { getAllItems } from '../database/items';
+import { Fragment, useEffect } from 'react';
 
-export default async function GenerateItem() {
-  const items = await getAllItems();
+type Item = {
+  id: number;
+  title: string;
+  type: string;
+  description: string | undefined;
+  imageLink: string;
+  price: number;
+};
+
+type Props = { items: Item[] };
+
+export default function GenerateItem({ items }: Props) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const wandAndStaffs = items.filter(
     (ws) => ws.type === 'Wand' || ws.type === 'Staff',

@@ -4,8 +4,8 @@ import Cart from './Cart';
 
 export default async function CartPage() {
   const cartItemCookies = cookies().get(`cart`);
-  const allItems = await getAllItems();
 
+  const allItems = await getAllItems();
   let cartItemCookiesParsed = [];
 
   if (cartItemCookies) {
@@ -22,6 +22,5 @@ export default async function CartPage() {
       amount: cookie.amount,
     };
   });
-
-  return <Cart items={cartItems} />;
+  return <Cart cartItems={cartItems} />;
 }

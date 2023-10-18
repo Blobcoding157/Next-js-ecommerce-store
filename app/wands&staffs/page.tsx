@@ -1,9 +1,11 @@
 import '../styles/wands-and-staffs-page.scss';
 import '../global.scss';
 import Image from 'next/image';
+import { getAllItems } from '../database/items';
 import GenerateItem from './generateItem';
 
-export default function WandsAndStaffsPage() {
+export default async function WandsAndStaffsPage() {
+  const items = await getAllItems();
   return (
     <>
       <div className="wandHeader">
@@ -16,7 +18,7 @@ export default function WandsAndStaffsPage() {
         />
       </div>
       <div className="items">
-        <GenerateItem />
+        <GenerateItem items={items} />
       </div>
     </>
   );
