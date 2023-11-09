@@ -11,7 +11,8 @@ body {
   font-size: 14px;
   scroll-behavior: smooth;
   min-height: 100vh;
-  color: #2f292b;
+  color: black;
+  background-color: white;
   line-height: 1.5;
   margin: 0;
 }
@@ -23,7 +24,6 @@ body {
 
 .cookieBannerContainer {
   justify-content: space-between;
-
   width: 100vw;
   font-weight: 700;
   flex-direction: column;
@@ -32,7 +32,7 @@ body {
   position: fixed;
   top: 0;
   z-index: 12;
-  background-color: #5e412f;
+  background-color: grey;
 }
 
 .cookieBannerButton {
@@ -41,14 +41,14 @@ body {
   font-weight: 400;
   margin: 2px;
   font-size: 18px;
-  border: 2px solid #5e412f;
+  border: 2px solid darkgrey;
   border-radius: 0.4em;
   box-shadow: 0.1em 0.1em;
 
   &:hover {
     transform: translate(-0.05em, -0.05em);
     box-shadow: 0.15em 0.15em;
-    background-color: blanchedalmond;
+    background-color: gray;
   }
 
   &:active {
@@ -59,8 +59,8 @@ body {
 
 header {
   background-color: rgb(255, 255, 255);
-  box-shadow: #2f292b;
-  border-bottom: #2f292b;
+  box-shadow: black;
+  border-bottom: black;
   position: fixed;
 
   margin: 0;
@@ -68,7 +68,7 @@ header {
 }
 
 .footer {
-  background: #5e412f;
-  color: #fff;
+  background: grey;
+  color: black;
   padding: 1em;
 }

@@ -7,13 +7,14 @@ export default async function Home() {
   const allItems = await getAllItems();
   return (
     <div className="hero-page-container">
-      <div className="hero-picture-container">
-        <img className="hero-background" alt="background" src="/main-bg.png" />
+      <div className="hero-page">
+        <h1 className="hero-title">Wizard x Shack 2023 Winter</h1>
         <img
-          className="hero-logo"
-          alt="Welcome to WizardShack"
-          src="/wizard-mp-t.png"
+          src="./main-page-wizard.jpg"
+          alt="hero"
+          className="hero-image-one"
         />
+        <img src="./winter-witch.jpg" alt="hero2" className="hero-image-two" />
       </div>
       <FeaturedCarousel items={allItems} />
     </div>

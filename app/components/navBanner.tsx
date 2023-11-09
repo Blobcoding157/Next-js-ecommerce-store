@@ -21,7 +21,7 @@ export default function NavBanner() {
 
   return (
     <div className="banner">
-      <Link href="/">
+      <Link href="/" className="headerLogo-container">
         <img
           className="headerLogo"
           alt="Wizard-Logo"
