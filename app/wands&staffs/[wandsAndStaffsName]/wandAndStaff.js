@@ -97,7 +97,9 @@ export default function WandAndStaff(props) {
           </div>
         </div>
         <div className="title-description">
-          <h1 className="title">{props.data.title.toLocaleUpperCase()}</h1>
+          <h1 className="title">
+            {props.data.title.toLocaleUpperCase().replace(/_/g, ' ')}
+          </h1>
 
           <div className="description">{props.data.description}</div>
         </div>

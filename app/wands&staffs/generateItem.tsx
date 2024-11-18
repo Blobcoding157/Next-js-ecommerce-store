@@ -46,9 +46,10 @@ export default function GenerateItem({ items }: Props) {
                   width="200"
                   height="250"
                 />
-                <h1 className="itemTitle">{item.title.toUpperCase()}</h1>
+                <h1 className="itemTitle">
+                  {item.title.toUpperCase().replace(/_/g, ' ')}
+                </h1>
                 <div className="itemType">{item.type}</div>
-
                 <div className="itemPrice">{item.price} G</div>
               </div>
             </Link>

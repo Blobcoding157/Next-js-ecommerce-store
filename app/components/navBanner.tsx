@@ -2,8 +2,10 @@ import '../global.scss';
 import '../styles/navBanner.scss';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
+import { getSearchItems } from '../database/items';
+import SearchBar from './searchBar';
 
-export default function NavBanner() {
+export default async function NavBanner() {
   const cartItemCookies = cookies().get(`cart`);
 
   let totalAmount = 0;
@@ -19,9 +21,11 @@ export default function NavBanner() {
     );
   }
 
+  const searchItems = await getSearchItems();
+
   return (
     <div className="banner">
-      <Link href="/" className="headerLogo-container">
+      <Link draggable="false" href="/" className="headerLogo-container">
         <img
           className="headerLogo"
           alt="Wizard-Logo"
@@ -51,6 +55,7 @@ export default function NavBanner() {
       </nav>
 
       <nav className="bannerUtilities">
+        <SearchBar items={searchItems} />
         <div className="utilitiesItem">
           <img className="utilsLogo" alt="search" src="/search.png" />
         </div>

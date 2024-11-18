@@ -1,6 +1,8 @@
 import { cache } from 'react';
 import { sql } from './connect';
 
+//  import { items } from './items';
+
 type Item = {
   id: number;
   title: string;
@@ -10,9 +12,23 @@ type Item = {
   price: number;
 };
 
+type SearchItem = {
+  id: number;
+  title: string;
+  type: string;
+  imageLink: string;
+};
+
 export const getAllItems = cache(async () => {
   const items = await sql<Item[]>`
     SELECT * FROM items
+    `;
+  return items;
+});
+
+export const getSearchItems = cache(async () => {
+  const items = await sql<SearchItem[]>`
+    SELECT id, title, type, image_link FROM items
     `;
   return items;
 });

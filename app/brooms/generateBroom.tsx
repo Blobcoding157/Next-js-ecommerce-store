@@ -46,7 +46,9 @@ export default function GenerateBroom({ items }: Props) {
                   width="200"
                   height="250"
                 />
-                <h1 className="itemTitle">{broom.title.toUpperCase()}</h1>
+                <h1 className="itemTitle">
+                  {broom.title.toUpperCase().replace(/_/g, ' ')}
+                </h1>
                 <div className="itemType">{broom.type}</div>
 
                 <div className="itemPrice">{broom.price} G</div>

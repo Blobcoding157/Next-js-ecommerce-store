@@ -46,7 +46,9 @@ export default function GenerateRobe({ items }: Props) {
                   width="200"
                   height="250"
                 />
-                <h1 className="itemTitle">{robe.title.toUpperCase()}</h1>
+                <h1 className="itemTitle">
+                  {robe.title.toUpperCase().replace(/_/g, ' ')}
+                </h1>
                 <div className="itemType">{robe.type}</div>
 
                 <div className="itemPrice">{robe.price} G</div>
