@@ -28,10 +28,14 @@ export default function Robes(props) {
           />
           <div className="buttonContainer">
             <input
-              type="submit"
               className="input"
               placeholder={count}
               value={count}
+              min={1}
+              pattern="[0-9]*"
+              onChange={(e) => {
+                setCount(e.target.value.replace(/\D/g, ''));
+              }}
             />
             <button
               className="button"
@@ -59,6 +63,10 @@ export default function Robes(props) {
             <button
               className="addToBag"
               onClick={() => {
+                if (count < 1 || isNaN(count)) {
+                  setCount(1);
+                  return;
+                }
                 // get the cookie
                 const wandsAndStaffCookies = getParsedCookie(`cart`);
                 // if there is no cookie we add an initial one with 1

@@ -1,25 +1,71 @@
 .missing {
   margin: auto;
-  color: teal;
+  color: rgb(255, 102, 102);
   letter-spacing: 0.0015em;
   font-size: 5em;
   margin-top: 250px;
+
+  &:hover {
+    animation: gelatine 0.5s infinite;
+  }
 
   animation: 1;
   animation-name: missingAnimation;
   animation-duration: 1s;
   animation-delay: 2s;
 
-  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #8da1ff, -2px 1px #c0cbff,
+  text-shadow: 0 1px #8da1ff, -1px 0 #c0cbff, -1px 2px #ffffff, -2px 1px #c0cbff,
     -2px 3px #8da1ff, -3px 2px #c0cbff, -3px 4px #8da1ff, -4px 3px #c0cbff,
     -4px 5px #8da1ff, -5px 4px #c0cbff, -5px 6px #8da1ff, -6px 5px #c0cbff,
     -6px 7px #8da1ff, -7px 6px #c0cbff, -7px 8px #8da1ff, -8px 7px #c0cbff;
   text-align: center;
 }
 
+.potionContainer {
+  display: flex;
+  background-image: url('/marioPotion.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: visible;
+  padding: 30px;
+  min-width: 80vw;
+  min-height: 80vh;
+  margin: 30px;
+  border-radius: 10px;
+  flex-direction: row;
+  align-items: center;
+  border: 10px;
+  border-bottom: 5px;
+  border-color: wheat;
+  animation: 1;
+  animation-name: missingAnimation;
+  animation-duration: 8s;
+  animation-delay: 4s;
+}
+
 @keyframes missingAnimation {
   100% {
     pointer-events: none;
     rotate: 360deg;
+  }
+}
+
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
   }
 }
