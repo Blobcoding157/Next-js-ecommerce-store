@@ -38,6 +38,10 @@
   position: relative;
   max-width: 75px;
   max-height: 75px;
+  &:hover {
+    animation: gelatine 0.2s;
+    animation-duration: 0.3s;
+  }
 }
 
 .utilsLogo {
@@ -50,6 +54,7 @@
   flex-direction: row;
   align-items: center;
   position: static;
+  margin-left: 3rem;
 }
 .navigationItem {
   display: flex;
@@ -113,6 +118,14 @@
   position: static;
   padding: 7px;
   background-color: #ffffff;
+  border-radius: 5px;
+  width: 20rem;
+  border: 1px solid #000000;
+  outline: none;
+
+  &:active {
+    border: 1px solid #000000;
+  }
   @media (max-width: 768px) {
     font-size: 0px;
   }
@@ -132,11 +145,15 @@
 
 .searchListItem {
   text-decoration: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: row;
-  margin: 1rem;
+  margin: 0.5rem;
   width: 20rem;
   color: black;
+  &:hover {
+    background-color: #dadada;
+  }
   &:visited {
     color: inherit;
   }
@@ -149,4 +166,23 @@
 .searchItemTitle {
   margin-left: 1rem;
   align-content: center;
+}
+
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
 }

@@ -15,9 +15,12 @@
 .cart-item-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  max-height: 85vh;
   margin: 1rem;
-  max-height: 80vh;
+  min-width: fill-available;
+  min-width: 60vw;
+  width: fit-content;
   overflow-y: auto;
   scroll-behavior: smooth;
   &::-webkit-scrollbar {
@@ -33,7 +36,7 @@
   border: solid black 1px;
   border-radius: 0.5rem;
   margin-bottom: 0.8rem;
-  min-width: 55vw;
+  min-width: 50vw;
 }
 
 .cart-item-title-information-container {
